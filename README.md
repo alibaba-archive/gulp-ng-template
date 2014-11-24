@@ -1,4 +1,4 @@
-gulp-ng-template v0.1.0 [![Build Status](https://travis-ci.org/teambition/gulp-ng-template.svg)](https://travis-ci.org/teambition/gulp-ng-template)
+gulp-ng-template v0.1.1 [![Build Status](https://travis-ci.org/teambition/gulp-ng-template.svg)](https://travis-ci.org/teambition/gulp-ng-template)
 ====
 > Precompile AngularJS templates to a JS file with $templateCache.
 
