@@ -1,6 +1,9 @@
-gulp-ng-template v0.1.1 [![Build Status](https://travis-ci.org/teambition/gulp-ng-template.svg)](https://travis-ci.org/teambition/gulp-ng-template)
+gulp-ng-template
 ====
-> Precompile AngularJS templates to a JS file with $templateCache.
+Precompile AngularJS templates to a JS file with $templateCache.
+
+[![NPM version][npm-image]][npm-url]
+[![Build Status][travis-image]][travis-url]
 
 ## Install
 
@@ -93,3 +96,9 @@ Create a JS file that Joined all template files.
 ## License
 
 MIT © [Teambition](http://teambition.com)
+
+[npm-url]: https://npmjs.org/package/gulp-ng-template
+[npm-image]: http://img.shields.io/npm/v/gulp-ng-template.svg
+
+[travis-url]: https://travis-ci.org/teambition/gulp-ng-template
+[travis-image]: http://img.shields.io/travis/teambition/gulp-ng-template.svg

@@ -32,7 +32,7 @@ module.exports = function(options) {
   });
 
   function normalizeName(name) {
-    return name.replace('\\', '/');
+    return name.replace(/\\/g, '/');
   }
 
   function normalizeContent(content) {
