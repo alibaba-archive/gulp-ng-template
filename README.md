@@ -26,7 +26,7 @@ gulp.task('templates:dist', function() {
       moduleName: 'genTemplates',
       standalone: true,
       filePath: 'js/templates.js'
-    })
+    }))
     .pipe(gulp.dest('dist'));  // output file: 'dist/js/templates.js'
 });
 ```
