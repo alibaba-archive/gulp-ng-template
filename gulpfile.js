@@ -14,3 +14,4 @@ gulp.task('jshint', function () {
 test();
 
 gulp.task('default', gulpSequence('jshint', 'test'));
+gulp.task('subfolders', gulpSequence('testSubFolders'));
