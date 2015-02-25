@@ -26,7 +26,7 @@ gulp.task('templates:dist', function() {
       moduleName: 'genTemplates',
       standalone: true,
       filePath: 'js/templates.js'
-    })
+    }))
     .pipe(gulp.dest('dist'));  // output file: 'dist/js/templates.js'
 });
 ```
@@ -85,6 +85,37 @@ Name of the AngularJS module.
 *Optional*, Type: `Boolean`, Default: `false`.
 
 Create an AngularJS module.
+
+### prefix
+
+*Optional*, Type: `String`, Default: `''`.
+
+Add a prefix to $templateCache's key.
+
+```js
+gulp.task('test', function () {
+  return gulp.src(['test/a.html', 'test/b.html'])
+    .pipe(ngTemplate({
+      filePath: 'js/tpl.js',
+      prefix: '/app/'
+    }))
+    .pipe(gulp.dest('test'));
+});
+```
+
+test/js/tpl.js:
+
+```js
+'use strict';
+
+angular.module('ngTemplates').run(['$templateCache', function($templateCache) {
+
+  $templateCache.put('/app/a.html', '<div class="test">A</div>\n');
+
+  $templateCache.put('/app/b.html', '<div class="test">\n  <span>B</span>\n</div>\n');
+
+}]);
+```
 
 ### filePath
 

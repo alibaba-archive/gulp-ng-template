@@ -19,7 +19,8 @@ module.exports = function(options) {
   var standalone = options.standalone ? ', []' : '';
   var moduleName = options.moduleName || 'ngTemplates';
   var filePath = options.filePath || 'templates.js';
-  var closure = options.closure || false;
+  var wrap = options.wrap || true;
+  var prefix = options.prefix || '';
   var joinedContent = '';
   var headerTpl = '\'use strict\';\n\nangular.module(\'<%= module %>\'<%= standalone %>).run([\'$templateCache\', function($templateCache) {\n\n';
   var contentTpl = '  $templateCache.put(\'<%= name %>\', \'<%= content %>\');\n\n';
@@ -44,7 +45,8 @@ module.exports = function(options) {
     if (file.isNull()) return next();
     if (file.isStream()) return this.emit('error', new gutil.PluginError(packageName,  'Streaming not supported'));
 
-    var name = path.relative(file.base, file.path);
+    var name = prefix;
+	  name += path.relative(file.base, file.path);
     joinedContent += gutil.template(contentTpl, {
       name: normalizeName(name),
       content: normalizeContent(file.contents),
@@ -53,8 +55,8 @@ module.exports = function(options) {
     next();
   }, function () {
     var content = joinedHeader + joinedContent + '}]);';
-    if (closure) {
-        content = '(function() {' + content + '})();';
+    if (wrap) {
+      content = '(function(){' + content + '})();';
     }
     joinedFile.contents = new Buffer(content);
     this.push(joinedFile);
