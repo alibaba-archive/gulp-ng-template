@@ -45,7 +45,7 @@ module.exports = function(options) {
     if (file.isStream()) return this.emit('error', new gutil.PluginError(packageName,  'Streaming not supported'));
 
     var name = prefix;
-	name += path.relative(file.base, file.path);
+	  name += path.relative(file.base, file.path);
     joinedContent += gutil.template(contentTpl, {
       name: normalizeName(name),
       content: normalizeContent(file.contents),
