@@ -56,7 +56,7 @@ module.exports = function(options) {
   }, function () {
     var content = joinedHeader + joinedContent + '}]);';
     if (wrap) {
-      content = '(function(){' + content + '})();';
+      content = '(function(){\n\n' + content + '\n\n})();';
     }
     joinedFile.contents = new Buffer(content);
     this.push(joinedFile);
