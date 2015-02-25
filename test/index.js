@@ -62,6 +62,23 @@ module.exports = function () {
         should(files[0]).be.equal(files[1]);
       });
   });
+  
+  gulp.task('ngTemplate({prefix: "/app/" , filePath: "js/subfolder.tpl.js"})', function(){
+	return gulp.src(['test/**/*.html'])
+		.pipe(ngTemplate({prefix: '/app/', filePath: 'js/subfolder.tpl.js'}))
+		.pipe(gulp.dest('test'));
+  });
+  
+  gulp.task('comparePrefix', function(){
+	var files = [];
+	return merge2(gulp.src('test/js/subfolder.tpl.js'), gulp.src('test/subfolder/expected.subfolder.tpl.js'))
+		.on('data', function(data){
+			files.push(data.contents.toString());
+		})
+		.on('end', function(){
+			should(files[0]).be.equal(files[1]);
+		});
+  });
 
   gulp.task('test', gulpSequence(
     'clean',
@@ -71,6 +88,13 @@ module.exports = function () {
     'ngTemplate({filePath: "js/tpl.js"})',
     'compare',
     'clean'
+  ));
+  
+  gulp.task('testSubFolders', gulpSequence(
+	'clean',
+	'ngTemplate({prefix: "/app/" , filePath: "js/subfolder.tpl.js"})',
+	'comparePrefix',
+	'clean'
   ));
 
 };
