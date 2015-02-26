@@ -3,7 +3,6 @@
  * gulp-ng-template
  * https://github.com/teambition/gulp-ng-template
  *
- * Copyright (c) 2014 Yan Qing
  * Licensed under the MIT license.
  */
 
@@ -56,7 +55,7 @@ module.exports = function(options) {
   }, function () {
     var content = joinedHeader + joinedContent + '}]);';
     if (wrap) {
-      content = '(function(){\n\n' + content + '\n\n})();';
+      content = ';(function(){\n\n' + content + '\n\n})();';
     }
     joinedFile.contents = new Buffer(content);
     this.push(joinedFile);
