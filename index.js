@@ -19,7 +19,7 @@ module.exports = function(options) {
   var standalone = options.standalone ? ', []' : '';
   var moduleName = options.moduleName || 'ngTemplates';
   var filePath = options.filePath || 'templates.js';
-  var wrap = options.wrap || true;
+  var wrap = options.wrap !== false;
   var prefix = options.prefix || '';
   var joinedContent = '';
   var headerTpl = '\'use strict\';\n\nangular.module(\'<%= module %>\'<%= standalone %>).run([\'$templateCache\', function($templateCache) {\n\n';
