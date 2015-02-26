@@ -19,6 +19,7 @@ module.exports = function(options) {
   var standalone = options.standalone ? ', []' : '';
   var moduleName = options.moduleName || 'ngTemplates';
   var filePath = options.filePath || 'templates.js';
+  var wrap = options.wrap !== false;
   var prefix = options.prefix || '';
   var joinedContent = '';
   var headerTpl = '\'use strict\';\n\nangular.module(\'<%= module %>\'<%= standalone %>).run([\'$templateCache\', function($templateCache) {\n\n';
@@ -53,7 +54,11 @@ module.exports = function(options) {
     });
     next();
   }, function () {
-    joinedFile.contents = new Buffer(joinedHeader + joinedContent + '}]);');
+    var content = joinedHeader + joinedContent + '}]);';
+    if (wrap) {
+      content = '(function(){\n\n' + content + '\n\n})();';
+    }
+    joinedFile.contents = new Buffer(content);
     this.push(joinedFile);
     this.push(null);
   });

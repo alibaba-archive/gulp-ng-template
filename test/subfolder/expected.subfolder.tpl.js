@@ -1,3 +1,5 @@
+(function(){
+
 'use strict';
 
 angular.module('ngTemplates').run(['$templateCache', function($templateCache) {
@@ -11,3 +13,5 @@ angular.module('ngTemplates').run(['$templateCache', function($templateCache) {
   $templateCache.put('/app/subfolder/d.html', '<div class="test">\n  <span>D</span>\n</div>\n');
 
 }]);
+
+})();
