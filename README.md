@@ -16,8 +16,8 @@ npm install --save-dev gulp-ng-template
 ## Usage
 
 ```js
-var minifyHtml = require('gulp-minify-html');
-var ngTemplate = require('gulp-ng-template');
+var minifyHtml = require('gulp-minify-html')
+var ngTemplate = require('gulp-ng-template')
 
 gulp.task('templates:dist', function() {
   gulp.src('src/tpl/**/*.html')
@@ -28,7 +28,7 @@ gulp.task('templates:dist', function() {
       filePath: 'js/templates.js'
     }))
     .pipe(gulp.dest('dist'));  // output file: 'dist/js/templates.js'
-});
+})
 ```
 
 ## Demo
@@ -54,7 +54,7 @@ gulp.task('test', function () {
   return gulp.src(['test/a.html', 'test/b.html'])
     .pipe(ngTemplate({filePath: 'js/tpl.js'}))
     .pipe(gulp.dest('test'));
-});
+})
 ```
 
 test/js/tpl.js:
@@ -100,7 +100,7 @@ gulp.task('test', function () {
       prefix: '/app/'
     }))
     .pipe(gulp.dest('test'));
-});
+})
 ```
 
 test/js/tpl.js:
@@ -114,7 +114,7 @@ angular.module('ngTemplates').run(['$templateCache', function($templateCache) {
 
   $templateCache.put('/app/b.html', '<div class="test">\n  <span>B</span>\n</div>\n');
 
-}]);
+}])
 ```
 
 ### filePath
