@@ -15,12 +15,13 @@ module.exports = function (options) {
   options = options || {}
 
   var joinedContent = ''
+  var useStrict = options.useStrict !== false
   var wrap = options.wrap !== false
   var prefix = options.prefix || ''
   var filePath = options.filePath || 'templates.js'
   var standalone = options.standalone ? ', []' : ''
   var moduleName = options.moduleName || 'ngTemplates'
-  var headerTpl = "'use strict';\n\nangular.module('<%= module %>'<%= standalone %>).run(['$templateCache', function($templateCache) {\n\n"
+  var headerTpl = (useStrict ? "'use strict';\n\n" : '') + "angular.module('<%= module %>'<%= standalone %>).run(['$templateCache', function($templateCache) {\n\n"
   var contentTpl = "  $templateCache.put('<%= name %>', '<%= content %>');\n\n"
   var joinedHeader = gutil.template(headerTpl, {module: moduleName, standalone: standalone, file: ''})
 
