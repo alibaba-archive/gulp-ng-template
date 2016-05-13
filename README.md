@@ -86,6 +86,18 @@ Name of the AngularJS module.
 
 Create an AngularJS module.
 
+### wrap
+
+*Optional*, Type: `Boolean`, Default: `true`.
+
+wrap the code with IIFE.
+
+### useStrict
+
+*Optional*, Type: `Boolean`, Default: `true`.
+
+'use strict;' will be generated on the top, but if `Options.wrap` is true, it be generated in the IIFE.
+
 ### prefix
 
 *Optional*, Type: `String`, Default: `''`.

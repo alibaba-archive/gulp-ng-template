@@ -21,7 +21,7 @@ module.exports = function (options) {
   var filePath = options.filePath || 'templates.js'
   var standalone = options.standalone ? ', []' : ''
   var moduleName = options.moduleName || 'ngTemplates'
-  var headerTpl = (useStrict ? "'use strict';\n\n" : "") + "angular.module('<%= module %>'<%= standalone %>).run(['$templateCache', function($templateCache) {\n\n"
+  var headerTpl = (useStrict ? "'use strict';\n\n" : '') + "angular.module('<%= module %>'<%= standalone %>).run(['$templateCache', function($templateCache) {\n\n"
   var contentTpl = "  $templateCache.put('<%= name %>', '<%= content %>');\n\n"
   var joinedHeader = gutil.template(headerTpl, {module: moduleName, standalone: standalone, file: ''})
 

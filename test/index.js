@@ -66,6 +66,18 @@ gulp.task('ngTemplate({prefix: "/app/" , filePath: "js/subfolder.tpl.js"})', fun
     .pipe(gulp.dest('test'))
 })
 
+gulp.task('ngTemplate({useStrict: false})', function () {
+  return gulp.src(['test/**/*.html'])
+    .pipe(ngTemplate({useStrict: false}))
+    .pipe(gulp.dest('test'))
+})
+
+gulp.task('ngTemplate({wrap: false})', function () {
+  return gulp.src(['test/**/*.html'])
+    .pipe(ngTemplate({wrap: false}))
+    .pipe(gulp.dest('test'))
+})
+
 gulp.task('comparePrefix', function () {
   var files = []
   return merge2(gulp.src('test/js/subfolder.tpl.js'), gulp.src('test/subfolder/expected.subfolder.tpl.js'))
