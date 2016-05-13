@@ -50,5 +50,5 @@ function normalizeName (name) {
 }
 
 function normalizeContent (content) {
-  return content.toString().replace(/\'/g, "\\'").replace(/\r?\n/g, '\\n')
+  return content.toString().replace(/'/g, "\\'").replace(/\r?\n/g, '\\n')
 }
