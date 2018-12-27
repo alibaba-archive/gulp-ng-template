@@ -1,12 +1,10 @@
 {
   "name": "gulp-ng-template",
   "description": "Precompile AngularJS templates to a JS file with $templateCache",
-  "version": "0.2.3",
+  "version": "1.0.0",
   "main": "index.js",
   "homepage": "https://github.com/teambition/gulp-ng-template",
-  "author": [
-    "Yan Qing <admin@zensh.com>"
-  ],
+  "author": "Yan Qing <admin@zensh.com>",
   "repository": {
     "type": "git",
     "url": "git://github.com/teambition/gulp-ng-template.git"
@@ -22,22 +20,24 @@
     "url": "https://github.com/teambition/gulp-ng-template/issues"
   },
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 6"
   },
   "scripts": {
     "test": "standard && gulp test"
   },
   "dependencies": {
-    "gulp-util": "^3.0.7",
-    "through2": "^2.0.1"
+    "lodash.template": "^4.4.0",
+    "plugin-error": "^1.0.1",
+    "through2": "^3.0.0",
+    "vinyl": "^2.2.0"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
-    "gulp-clean": "^0.3.2",
-    "gulp-sequence": "^0.4.5",
-    "merge2": "^1.0.2",
-    "should": "^8.3.1",
-    "standard": "^7.0.1"
+    "gulp-clean": "^0.4.0",
+    "gulp-sequence": "^1.0.0",
+    "merge2": "^1.2.3",
+    "should": "^13.2.3",
+    "standard": "^12.0.1"
   },
   "files": [
     "README.md",
