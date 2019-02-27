@@ -10,7 +10,7 @@ var gulpSequence = require('gulp-sequence')
 
 gulp.task('clean', function () {
   return gulp.src(['test/templates.js', 'test/js'])
-    .pipe(clean({force: true}))
+    .pipe(clean({ force: true }))
 })
 
 gulp.task('ngTemplate()', function () {
@@ -24,7 +24,7 @@ gulp.task('ngTemplate({moduleName: "testModule"})', function () {
   return merge2(
     gulp.src('test/templates.js'),
     gulp.src(['test/a.html', 'test/b.html'])
-      .pipe(ngTemplate({moduleName: 'testModule'})))
+      .pipe(ngTemplate({ moduleName: 'testModule' })))
     .on('data', function (data) {
       if (!origin) origin = data.contents.toString()
       else should(origin.replace('ngTemplates', 'testModule')).be.equal(data.contents.toString())
@@ -36,7 +36,7 @@ gulp.task('ngTemplate({standalone: true})', function () {
   return merge2(
     gulp.src('test/templates.js'),
     gulp.src(['test/a.html', 'test/b.html'])
-      .pipe(ngTemplate({standalone: true})))
+      .pipe(ngTemplate({ standalone: true })))
     .on('data', function (data) {
       if (!origin) origin = data.contents.toString()
       else should(origin.replace("'ngTemplates'", "'ngTemplates', []")).be.equal(data.contents.toString())
@@ -45,7 +45,7 @@ gulp.task('ngTemplate({standalone: true})', function () {
 
 gulp.task('ngTemplate({filePath: "js/tpl.js"})', function () {
   return gulp.src(['test/a.html', 'test/b.html'])
-    .pipe(ngTemplate({filePath: 'js/tpl.js'}))
+    .pipe(ngTemplate({ filePath: 'js/tpl.js' }))
     .pipe(gulp.dest('test'))
 })
 
@@ -62,19 +62,19 @@ gulp.task('compare', function () {
 
 gulp.task('ngTemplate({prefix: "/app/" , filePath: "js/subfolder.tpl.js"})', function () {
   return gulp.src(['test/**/*.html'])
-    .pipe(ngTemplate({prefix: '/app/', filePath: 'js/subfolder.tpl.js'}))
+    .pipe(ngTemplate({ prefix: '/app/', filePath: 'js/subfolder.tpl.js' }))
     .pipe(gulp.dest('test'))
 })
 
 gulp.task('ngTemplate({useStrict: false})', function () {
   return gulp.src(['test/**/*.html'])
-    .pipe(ngTemplate({useStrict: false}))
+    .pipe(ngTemplate({ useStrict: false }))
     .pipe(gulp.dest('test'))
 })
 
 gulp.task('ngTemplate({wrap: false})', function () {
   return gulp.src(['test/**/*.html'])
-    .pipe(ngTemplate({wrap: false}))
+    .pipe(ngTemplate({ wrap: false }))
     .pipe(gulp.dest('test'))
 })
 
